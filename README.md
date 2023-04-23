@@ -19,9 +19,9 @@
 ```shell script
 git clone git@github.com:jsososo/QQMusicApi.git
 
-yarn
+npm install
 
-yarn start
+npm start
 ```
 
 ### Docker
