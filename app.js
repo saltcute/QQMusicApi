@@ -4,13 +4,13 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const fs = require('fs');
-const DataStatistics = require('./util/dataStatistics');
+const DataStatistics = require('./src/util/dataStatistics');
 const jsonFile = require('jsonfile');
-const Feedback = require('./util/feedback');
-const Cache = require('./util/cache');
+const Feedback = require('./src/util/feedback');
+const Cache = require('./src/util/cache');
 const config = require('./bin/config');
-const Request = require('./util/request');
-const GlobalCookie = require('./util/globalCookie');
+const Request = require('./src/util/request');
+const GlobalCookie = require('./src/util/globalCookie');
 
 const app = express();
 const dataHandle = new DataStatistics();
@@ -77,7 +77,7 @@ fs.readdirSync(path.join(__dirname, 'routes')).forEach(file => {
 
 app.use('/', (req, res, next) => {
   const router = express.Router();
-  router.get('/', (req, res) => require('./routes/index')['/'](req, res))
+  router.get('/', (req, res) => require('./src/routes/index')['/'](req, res))
   router(req, res, next);
 });
 
