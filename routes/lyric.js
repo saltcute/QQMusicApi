@@ -1,8 +1,8 @@
 const Base64 = require('js-base64');
 
 module.exports = {
-  '/': async ({req, res, request}) => {
-    const {songmid, raw} = req.query;
+  '/': async ({ req, res, request }) => {
+    const { songmid, raw } = req.query;
 
     if (!songmid) {
       return res.send({
@@ -30,7 +30,7 @@ module.exports = {
       }
     });
 
-    result.lyric = Base64.Base64.decode(result.lyric);
+    result.lyric = Base64.Base64.decode(result.lyric || '');
     result.trans = Base64.Base64.decode(result.trans || '');
     if (Number(raw)) {
       res.send(result);
